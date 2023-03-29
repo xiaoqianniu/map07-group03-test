@@ -10,3 +10,15 @@ function numberChanged() {
   var age = document.getElementById('myNumber').value
   console.log('age :' + age)
 }
+
+function multiplyClicked() {
+  var n1 = document.getElementById('number1').value
+  var n2 = document.getElementById('number2').value
+  document.getElementById('result').innerHTML = n1 * n2
+}
+
+function divideClicked() {
+  var n1 = document.getElementById('number1').value
+  var n2 = document.getElementById('number2').value
+  document.getElementById('result').innerHTML = n1 / n2
+}
