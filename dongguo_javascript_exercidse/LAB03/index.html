@@ -5,8 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
+    <script type="text/javascript" src="script.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"
+    />
+		     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <body>
-    <h1>hi, there</h1>
+    <h1 id="msg">hi, there</h1>
+    <div>
+			<h1>This is an input</h1>
+			<input id="myNumber" type="text" onchange="numberChanged()" oninput="numberChanging()">
+			<p>This is a paragraph.</p>
+			<input type="submit" text="click me" onclick="submitClicked()">
+			<hr>
+
+
+    </div>
   </body>
 </html>
