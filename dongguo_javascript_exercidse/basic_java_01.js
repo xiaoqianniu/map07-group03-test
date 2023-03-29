@@ -25,9 +25,9 @@ function f(age) {
   console.log('age is: ' + age)
 }
 
-let f3 = (age)  {
-	console.log("another fucntion \n")
-	console.log("age is : " + age)
+let f2 = (age) => {
+  console.log('another fucntion \n')
+  console.log('age is : ' + age)
 }
 
 f(5)
