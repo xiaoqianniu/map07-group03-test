@@ -1,10 +1,59 @@
-function printFibonacci(n) {
-  let fib = [0, 1, 1]
-  for (let i = 3; i <= n; i++) {
-    fib[i] = fib[i - 2] + fib[i - 1]
+function checkPrime() {
+  let n = document.getElementById('checkPrimeButton').value
+  document.getElementById('primeMsg').innerHTML = isPrime(n)
+    ? n + ' is a prime'
+    : n + ' is not a prime'
+}
+
+function isPrime(n) {
+  if (n === 1) {
+    return false
+  }
+  if (n === 2) {
+    return true
   }
 
-  console.table(fib)
+  for (var x = 2; x < n; x++) {
+    if (n % x === 0) {
+      return false
+    }
+    return true
+  }
+}
+
+var users = []
+class User {
+  constructor(email, password) {
+    this.email = email
+    this.password = password
+  }
+}
+
+function register() {
+  let email = document.getElementById('email').value
+  let password = document.getElementById('password').value
+  users.push(new User(email, password))
+  console.table(users)
+  console.log('register')
+}
+
+function printFibonacci(n) {
+  let fibs = [0, 1, 1]
+  for (let i = 3; i <= n; i++) {
+    fibs[i] = fibs[i - 2] + fibs[i - 1]
+  }
+
+  console.table(fibs)
+}
+
+function fib(n) {
+  if (n === 0) {
+    return 0
+  }
+  if (n === 1) {
+    return 1
+  }
+  return fib(n - 2) + fib(n - 1)
 }
 
 function submitClicked() {

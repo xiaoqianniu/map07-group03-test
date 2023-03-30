@@ -16,10 +16,32 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <body>
-	<input type="button" value="print fibonacci" onclick="printFibonacci(15)">
-	<h1 id="msg">hi, there</h1>
 	<div>
-		<h1>This is an input</h1>
+		<h2>Exrs 1 : check Prime</h2>
+		<h6 id="primeMsg">Please enter an integer</h6>
+		<input id="checkPrimeButton" type="text" onchange="checkPrime()">
+	</div>
+	<div>
+		<h2>Exrs 2 : Registration from</h2>
+		<div>
+			<h6 id="registrationMsg">Please register</h6>
+
+			<label for="email">email:</label><br>
+			<input type="text" id="email" value="email@email.com"><br>
+			<label for="password">password:</label><br>
+			<input type="text" id="password" value="*.*">
+			<input id="registerButton" type="submit" onclick="register()" value="Register">
+		</div>
+	</div>
+
+	<div>
+		<h2>Exrs 3 : print fibonacci on console</h2>
+		<input type="button" value="print fibonacci" onclick="printFibonacci(15)">
+	</div>
+
+	<div>
+		<h1 id="msg">hi, there</h1>
+		<h3>This is an input</h3>
 		<input id="myNumber" type="text" onchange="numberChanged()" oninput="numberChanging()">
 		<p>This is a paragraph.</p>
 		<input type="submit" text="click me" onclick="submitClicked()">
