@@ -1,11 +1,22 @@
+function printFibonacci(n) {
+  let fib = [0, 1, 1]
+  for (let i = 3; i <= n; i++) {
+    fib[i] = fib[i - 2] + fib[i - 1]
+  }
+
+  console.table(fib)
+}
+
 function submitClicked() {
   var age = document.getElementById('myNumber').value
   document.getElementById('msg').innerHTML = 'Your age is: ' + age
 }
+
 function numberChanging() {
   var age = document.getElementById('myNumber').value
   console.log('age...' + age)
 }
+
 function numberChanged() {
   var age = document.getElementById('myNumber').value
   console.log('age :' + age)
