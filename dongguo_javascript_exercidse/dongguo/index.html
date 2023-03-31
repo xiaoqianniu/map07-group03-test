@@ -96,7 +96,7 @@
 
 		function getImage() {
 			var xhr = new XMLHttpRequest();
-			xhr.open("POST", "http://localhost:8080/images/2/view", true);
+			xhr.open("POST", "http://localhost:8080/images/3/view", true);
 
 			// Set any required headers or tokens for authentication or authorization
 			// xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -128,35 +128,22 @@
 
 		}
 
-		var file;
-		var formData
 
 
 		var el = document.getElementById("file")
 		el.addEventListener('change', function (e) {
-			//1.可以通过this拿到这个file的DOM元素
 			console.log(this)
-			//1.  e 函数事件参数对象中也有这个file的DOM元素对象。使用e.target也可以直接拿到
 			console.log(e.target)
-			//对开发人员屏蔽，所以直接 必须调用这个文件的DOM对象的files属性，返回一个数组
 			let files = e.target.files
 			console.log(files)
-			// console.log(files.item(0))
-			// console.log(files[0])
-			// 判断一手是否有文件
 			if (!files.length) return
-			// 上传文件 创建FormData
 
 			file = files[0]
 			previewFile(files[0])
 			formData = new FormData()
-			// upFile就是后台接收的key
-
 			formData.append('name', 'name')
 			formData.append('description', 'name')
 			formData.append('file', files[0], files[0].name)
-			// 将formdata发送到后台即可
-			// 我用的 axios.post('url', formData)
 			console.log(formData)
 			axios({
 				method: "post",
@@ -165,11 +152,9 @@
 				headers: { "Content-Type": "multipart/form-data" },
 			})
 				.then(function (response) {
-					//handle success
 					console.log(response);
 				})
 				.catch(function (response) {
-					//handle error
 					console.log(response);
 				});
 
@@ -179,37 +164,16 @@
 		function previewFile(file) {
 			let reader
 			if (file) {
-				// 创建流对象
 				reader = new FileReader()
 				reader.readAsDataURL(file)
 			}
-			// 捕获 转换完毕
 			reader.onload = function (e) {
-				// 转换后的base64就在e.target.result里面,直接放到img标签的src属性即可
-				document.querySelector('img').src = e.target.result
+			document.querySelector('img').src = e.target.result
 			}
 		}
 
 
-		document.getElementById('image-upload-form').addEventListener('submit', function (event) {
-			event.preventDefault(); //prevent form submit
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'http://localhsot:8080/images', true);
-			xhr.onload = function () {
-				if (xhr.status === 200) {
-					console.log('Image uploaded successfully!');
-					// Do something on a successful image upload
-				} else {
-					console.log('Image upload failed: ' + xhr.responseText);
-					// Do something on a failed image upload
-				}
-			};
-			console.log(formData)
-			xhr.send(formData);
-		});
-
-
-	</script>
+			</script>
 </body>
 
 </html>
