@@ -1,0 +1,14 @@
+.text-bg-sushi-orange {
+  color: #000 !important;
+  background-color: RGBA(255, 114, 2, var(--bs-bg-opacity, 1)) !important;
+}
+
+.text-bg-sushi-gray {
+  color: #000 !important;
+  background-color: RGBA(233, 235, 235, var(--bs-bg-opacity, 1)) !important;
+}
+
+.text-bg-sushi-dark {
+  color: #000 !important;
+  background-color: RGBA(192, 192, 192, var(--bs-bg-opacity, 1)) !important;
+}
