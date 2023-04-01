@@ -10,7 +10,16 @@ Dongguo created a new branch dev-dongguo
 
 xiao wei tested
 
-Summary from Dongguo
+## Main technology
+
+- Git GitHub
+- User requirements research
+- Mobile-first Design
+- Bootstrap responsive layout
+- Using ajax consume json
+- Upload and download image
+
+## Git Summary from Dongguo
 
 ### 0 clone repository
 
@@ -30,6 +39,7 @@ git pull origin main
 git switch your-branch
 git merge --no-ff main
 ```
+
 xxx
 
 ### commit and push code into your repository
