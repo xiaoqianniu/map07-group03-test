@@ -1,31 +1,70 @@
-
 // search by card-title
-function getSearchResult(query){
-    var xhr = new XMLHttpRequest();
-    var cards = document.querySelectorAll(".card");  
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-          var results = JSON.parse(xhr.responseText);
-          console.log(results); 
-          for(var i=0;i<cards.length;i++) {
-          var title = cards[i].querySelector(".card-title").textContent.toLowerCase();
-          var match = title.includes(query);
-          cards[i].style.display = match ? "block" : "none";
-          }
-        }else{
-          alert("reqquest fail");
-        } 
+function getSearchResult(query) {
+  var xhr = new XMLHttpRequest()
+  var cards = document.querySelectorAll('.card')
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      var results = JSON.parse(xhr.responseText)
+      console.log(results)
+      for (var i = 0; i < cards.length; i++) {
+        var title = cards[i]
+          .querySelector('.card-title')
+          .textContent.toLowerCase()
+        var match = title.includes(query)
+        cards[i].style.display = match ? 'block' : 'none'
+      }
+    } else {
+      alert('reqquest fail')
     }
-    xhr.open("GET", "http://www.boredapi.com/api/activity");
-    xhr.send();
-}
-document.getElementById("search-field").addEventListener("keydown",function(event){
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    var query = document.getElementById("search-field").value.toLowerCase();
-    getSearchResult(query);
   }
-});
+  xhr.open('GET', 'http://www.boredapi.com/api/activity')
+  xhr.send()
+}
+
+document
+  .getElementById('search-field')
+  .addEventListener('keydown', function (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault()
+      var query = document.getElementById('search-field').value.toLowerCase()
+      getSearchResult(query)
+    }
+  })
+
+function showList() {
+  for (let i = 1; i <= 7; i++) {
+    let item = document.createElement('div')
+    item.classList.add('card')
+    item.classList.add('col-sm-12')
+    item.classList.add('col-md-5')
+    item.classList.add('col-lg-3')
+    item.innerHTML = `<div id="card-${i}" style="width: 18rem">
+			<h4 class="card-title">California</h4>
+			<img src="/images/Sushi_1.jpg" class="card-img-top" alt="..." />
+			<div class="card-body">
+				<h5 class="card-title">Japan found itself in midst</h5>
+				<p class="card-text">
+					the rice and fish reduced the time to about one month
+				</p>
+				<div class="card-price-btn">
+					<p id="card-price">$7</p>
+					<button class="btn">Order a Sushi</button>
+				</div>
+			</div>
+		</div>`
+    addItem(item)
+  }
+}
+function addItem(item) {
+  let container = document.getElementById('item-container')
+  container.appendChild(item)
+}
+
+$(document).ready(function () {
+  showList()
+})
+
+// showList()
 
 // //sort based on price
 // let sortedAsc = true;
@@ -73,4 +112,3 @@ document.getElementById("search-field").addEventListener("keydown",function(even
 // chrome.runtime.sendMessage({type: "my_message"}, function(response) {
 //   console.log("Message sent successfully!");
 // }, 5000);
-
