@@ -151,7 +151,6 @@
                 </div>
               </div>
               <div class="col-12 col-md-4">
-                03
                 <button class="btn" onclick="addSushi()">Add Sushi</button>
               </div>
             </div>
@@ -180,7 +179,8 @@
         console.log(formData)
         axios({
           method: 'post',
-          url: 'http://localhost:8080/images',
+          // url: 'http://localhost:8080/images',
+          url: 'http://dongguo.xyz:8080/images',
           data: formData,
           headers: { 'Content-Type': 'multipart/form-data' },
         })
@@ -224,7 +224,8 @@
         console.log(data)
         axios({
           method: 'post',
-          url: 'http://localhost:8080/sushi',
+          // url: 'http://localhost:8080/sushi',
+          url: 'http://dongguo.xyz:8080/sushi',
           data,
         })
           .then(function (response) {
