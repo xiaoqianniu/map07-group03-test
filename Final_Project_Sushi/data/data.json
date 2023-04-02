@@ -1,0 +1,58 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "title": "California",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$7",
+      "button": "Order a sushi"
+    },
+    {
+      "id": 2,
+      "title": "Ca",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$10",
+      "button": "Order a sushi"
+    },
+    {
+      "id": 3,
+      "title": "Caornia",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$15",
+      "button": "Order a sushi"
+    },
+    {
+      "id": 4,
+      "title": "ornia",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$12",
+      "button": "Order a sushi"
+    },
+    {
+      "id": 5,
+      "title": "California",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$13",
+      "button": "Order a sushi"
+    },
+    {
+      "id": 6,
+      "title": "California",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$8",
+      "button": "Order a sushi"
+    }
+  ]
+}

@@ -31,40 +31,50 @@ document
     }
   })
 
-function showList() {
-  for (let i = 1; i <= 7; i++) {
-    let item = document.createElement('div')
-    item.classList.add('card')
-    item.classList.add('col-sm-12')
-    item.classList.add('col-md-5')
-    item.classList.add('col-lg-3')
-    item.innerHTML = `<div id="card-${i}" style="width: 18rem">
-			<h4 class="card-title">California</h4>
-			<img src="/images/Sushi_1.jpg" class="card-img-top" alt="..." />
+// Dongguo start
+
+//
+function showList(list) {
+  for (const item of list) {
+    let element = document.createElement('div')
+    element.classList.add('card')
+    element.classList.add('col-sm-12')
+    element.classList.add('col-md-5')
+    element.classList.add('col-lg-3')
+    element.innerHTML = `<div id="card-{item.id}" style="width: 18rem" key={item.id}>
+			<h4 class="card-title">${item.title}</h4>
+			<img src="${item.image}" class="card-img-top" alt="..." />
 			<div class="card-body">
-				<h5 class="card-title">Japan found itself in midst</h5>
-				<p class="card-text">
-					the rice and fish reduced the time to about one month
-				</p>
+				<h5 class="card-title">${item.subtitle}</h5>
+				<p class="card-text">${item.description}</p>
 				<div class="card-price-btn">
-					<p id="card-price">$7</p>
+					<p id="card-price">${item.price}</p>
 					<button class="btn">Order a Sushi</button>
 				</div>
 			</div>
 		</div>`
-    addItem(item)
+    addItem(element)
   }
 }
+
 function addItem(item) {
   let container = document.getElementById('item-container')
   container.appendChild(item)
 }
 
 $(document).ready(function () {
-  showList()
+  fetch('data/data.json')
+    .then((response) => response.json())
+    .then((data) => {
+      // Do something with the array of objects
+      console.log(data)
+
+      showList(data.list)
+    })
+    .catch((error) => console.error(error))
 })
 
-// showList()
+// Dongguo end
 
 // //sort based on price
 // let sortedAsc = true;
