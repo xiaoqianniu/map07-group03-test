@@ -1,26 +1,41 @@
 // search by card-title
+// function getSearchResult(query) {
+//   var xhr = new XMLHttpRequest()
+//   var cards = document.querySelectorAll('.card')
+//   xhr.onload = function () {
+//     if (xhr.status === 200) {
+//       var results = JSON.parse(xhr.responseText)
+//       console.log(results)
+//       for (var i = 0; i < cards.length; i++) {
+//         var title = cards[i]
+//           .querySelector('.card-title')
+//           .textContent.toLowerCase()
+//         var match = title.includes(query)
+//         cards[i].style.display = match ? 'block' : 'none'
+//       }
+//     } else {
+//       alert('reqquest fail')
+//     }
+//   }
+//   xhr.open('GET', 'http://www.boredapi.com/api/activity')
+//   xhr.send()
+// }
 function getSearchResult(query) {
-  var xhr = new XMLHttpRequest()
   var cards = document.querySelectorAll('.card')
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      var results = JSON.parse(xhr.responseText)
-      console.log(results)
+  fetch('data/data.json')
+    .then((response) => response.json())
+    .then((data) => {
       for (var i = 0; i < cards.length; i++) {
         var title = cards[i]
           .querySelector('.card-title')
           .textContent.toLowerCase()
         var match = title.includes(query)
-        cards[i].style.display = match ? 'block' : 'none'
+        cards[i].style.display = match ? 'block' : 'none' 
       }
-    } else {
-      alert('reqquest fail')
-    }
-  }
-  xhr.open('GET', 'http://www.boredapi.com/api/activity')
-  xhr.send()
+    })
+    .catch((error) => console.error(error))
 }
-
+// when hit the enter key will execute the search, do not need to click the search button
 document
   .getElementById('search-field')
   .addEventListener('keydown', function (event) {
@@ -30,95 +45,56 @@ document
       getSearchResult(query)
     }
   })
-
+  
 // Dongguo start
 
-//
-function showList(list) {
+// dynamic adding cards/Items
+function showList(list,containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = ''; // clear previous contents of container
   for (const item of list) {
     let element = document.createElement('div')
     element.classList.add('card')
     element.classList.add('col-sm-12')
     element.classList.add('col-md-5')
     element.classList.add('col-lg-3')
+    element.classList.add('mx-auto')
+    element.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.3)'// add box-showdow here
     element.innerHTML = `<div id="card-{item.id}" style="width: 18rem" key={item.id}>
-			<h4 class="card-title">${item.title}</h4>
-			<img src="${item.image}" class="card-img-top" alt="..." />
+			<h4 class="card-title text-center">${item.title}</h4>
+			<img src="${item.image}" class="card-img-top mx-auto d-block" alt="..." />
 			<div class="card-body">
-				<h5 class="card-title">${item.subtitle}</h5>
-				<p class="card-text">${item.description}</p>
+				<h5 class="card-subtitle">${item.subtitle}</h5>
+				<p class="card-description">${item.description}</p>
 				<div class="card-price-btn">
 					<p id="card-price">${item.price}</p>
 					<button class="btn">Order a Sushi</button>
 				</div>
 			</div>
 		</div>`
-    addItem(element)
+    addItem(element,containerId)
   }
 }
 
-function addItem(item) {
-  let container = document.getElementById('item-container')
+function addItem(item,containerId) {
+  let container = document.getElementById(containerId)
   container.appendChild(item)
 }
-
+//Wait until the document has finished loading.
+//Fetch data from a JSON file called data.json.
+//Parse the JSON response into a JavaScript object.
 $(document).ready(function () {
   fetch('data/data.json')
     .then((response) => response.json())
     .then((data) => {
       // Do something with the array of objects
       console.log(data)
-
-      showList(data.list)
+      const list = data.list;
+      const blossom = data.blossom;
+      showList(list, 'item-container');
+      showList(blossom, 'blossom-container');
     })
     .catch((error) => console.error(error))
 })
 
 // Dongguo end
-
-// //sort based on price
-// let sortedAsc = true;
-// const cardsContainer = document.querySelector('.card-container');
-// const cardsSection1 = document.querySelector('.cards-section1');
-// const cardsSection2 = document.querySelector('.cards-section2');
-
-// function sortBtn() {
-//   console.log("hello");
-//   // Get all the cards in the container
-//   let cards = Array.from(cardsContainer.querySelectorAll('.card'));
-
-//   // Filter cards into two sections
-//   const cardsInSection1 = cards.filter(card => card.parentElement === cardsSection1);
-//   const cardsInSection2 = cards.filter(card => card.parentElement === cardsSection2);
-// debugger;
-//   // Sort cards in each section
-//   cardsInSection1.sort((a, b) => {
-//     const priceA = parseInt(a.querySelector('.card-price').textContent.slice(1));
-//     const priceB = parseInt(b.querySelector('.card-price').textContent.slice(1));
-//     return priceA - priceB;
-//   });
-
-//   cardsInSection2.sort((a, b) => {
-//     const priceA = parseInt(a.querySelector('.card-price').textContent.slice(1));
-//     const priceB = parseInt(b.querySelector('.card-price').textContent.slice(1));
-//     return priceA - priceB;
-//   });
-
-//   // Reorder cards in the container based on the sorted sections
-//   if (sortedAsc) {
-//     console.log("sortASC")
-//     cardsContainer.innerHTML = '';
-//     cardsContainer.append(...cardsInSection1, ...cardsInSection2);
-//   } else {
-//     cardsContainer.innerHTML = '';
-//     cardsContainer.append(...cardsInSection2, ...cardsInSection1);
-//   }
-
-//   sortedAsc = !sortedAsc;
-// }
-
-// document.getElementById('sort-btn').addEventListener('click', sortBtn);
-
-// chrome.runtime.sendMessage({type: "my_message"}, function(response) {
-//   console.log("Message sent successfully!");
-// }, 5000);
