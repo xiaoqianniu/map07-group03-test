@@ -93,6 +93,7 @@
                       type="title"
                       class="form-control"
                       placeholder="enter sushi title"
+                      value="sushi title"
                       id="title"
                       required=""
                     />
@@ -106,6 +107,7 @@
                       class="form-control"
                       placeholder="enter sushi title"
                       id="subTitle"
+                      value="sushi subtitle"
                       required=""
                     />
                   </div>
@@ -118,6 +120,7 @@
                       class="form-control"
                       placeholder="enter sushi title"
                       id="price"
+                      value="21"
                       required=""
                     />
                   </div>
@@ -141,7 +144,7 @@
                 <div>
                   <img
                     id="img-preview"
-                    class="width-50"
+                    class="width-260"
                     src="./images/Sushi_1.jpg"
                     alt=""
                   />
@@ -149,7 +152,7 @@
               </div>
               <div class="col-12 col-md-4">
                 03
-                <button class="btn" type="submit">Upload</button>
+                <button class="btn" onclick="addSushi()">Add Sushi</button>
               </div>
             </div>
           </div>
@@ -159,6 +162,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script>
+      var imageId = null
       var el = document.getElementById('file')
       el.addEventListener('change', function (e) {
         console.log(this)
@@ -182,6 +186,8 @@
         })
           .then(function (response) {
             console.log(response)
+            imageId = response.data.id
+            console.log(imageId)
           })
           .catch(function (response) {
             console.log(response)
@@ -197,6 +203,38 @@
         reader.onload = function (e) {
           document.getElementById('img-preview').src = e.target.result
         }
+      }
+
+      function addSushi() {
+        const title = document.getElementById('title').value
+        const subTitle = document.getElementById('subTitle').value
+        const price = document.getElementById('price').value
+        const description = document.getElementById('description').value
+        console.log(title, subTitle, price, description, imageId)
+
+        // Post
+        const data = {
+          title,
+          subTitle,
+          price,
+          description,
+          imageId: 16,
+        }
+
+        console.log(data)
+        axios({
+          method: 'post',
+          url: 'http://localhost:8080/sushi',
+          data,
+        })
+          .then(function (response) {
+            console.log(response)
+            imageId = response.data.id
+            console.log(imageId)
+          })
+          .catch(function (response) {
+            console.log(response)
+          })
       }
     </script>
   </body>
