@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "title": "Ca",
+      "title": "Lion",
       "image": "./images/Sushi_1.jpg",
       "subtitle": "Japan found itself in midst",
       "description": "the rice and fish reduced the time to about one month",
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "title": "Caornia",
+      "title": "Kamikaze",
       "image": "./images/Sushi_1.jpg",
       "subtitle": "Japan found itself in midst",
       "description": "the rice and fish reduced the time to about one month",
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "title": "ornia",
+      "title": "Inferno",
       "image": "./images/Sushi_1.jpg",
       "subtitle": "Japan found itself in midst",
       "description": "the rice and fish reduced the time to about one month",
@@ -38,7 +38,7 @@
     },
     {
       "id": 5,
-      "title": "California",
+      "title": "Smoky",
       "image": "./images/Sushi_1.jpg",
       "subtitle": "Japan found itself in midst",
       "description": "the rice and fish reduced the time to about one month",
@@ -47,7 +47,63 @@
     },
     {
       "id": 6,
-      "title": "California",
+      "title": "Boston",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$8",
+      "button": "Order a sushi"
+    }
+  ],
+  "blossom" :[
+    {
+      "id": 7,
+      "title": "Kampai",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$7",
+      "button": "Order a sushi"
+    },
+    {
+      "id": 8,
+      "title": "Volcano",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$10",
+      "button": "Order a sushi"
+    },
+    {
+      "id": 9,
+      "title": "Cherry Blossom",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$15",
+      "button": "Order a sushi"
+    },
+    {
+      "id": 10,
+      "title": "Sesame Tuna",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$12",
+      "button": "Order a sushi"
+    },
+    {
+      "id": 11,
+      "title": "Phoenix",
+      "image": "./images/Sushi_1.jpg",
+      "subtitle": "Japan found itself in midst",
+      "description": "the rice and fish reduced the time to about one month",
+      "price": "$13",
+      "button": "Order a sushi"
+    },
+    {
+      "id": 12,
+      "title": "Red Velvet",
       "image": "./images/Sushi_1.jpg",
       "subtitle": "Japan found itself in midst",
       "description": "the rice and fish reduced the time to about one month",

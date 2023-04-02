@@ -11,7 +11,24 @@
 body {
     background-color: #ff7202;
 }
+/* .card {
+  height : 25rem;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 1rem;
+} */
+.item-container {
+  position: relative;
+}
+
 .card {
+  position: absolute;
+  top: 0;
+  left: 0;
   height : 25rem;
   margin-bottom: 20px;
   display: flex;
@@ -57,7 +74,7 @@ justify-content: space-between;
     text-align: center;
   }
   #sort-btn{
-    background-color: white;
+    background-color: #ff7202;
     border:none;
     border-radius: 0.5rem;
     font-size:small;
@@ -65,3 +82,4 @@ justify-content: space-between;
   #sort-btn:hover{
     background-color: lightgray;
   }
+  
