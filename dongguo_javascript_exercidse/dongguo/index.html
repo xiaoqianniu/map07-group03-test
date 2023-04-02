@@ -96,24 +96,16 @@
 
 		function getImage() {
 			var xhr = new XMLHttpRequest();
-			xhr.open("POST", "http://localhost:8080/images/3/view", true);
-
-			// Set any required headers or tokens for authentication or authorization
-			// xhr.setRequestHeader("Authorization", "Bearer " + token);
-
-			// Set the responseType to indicate binary data
+			// xhr.open("POST", "http://localhost:8080/images/3/view", true);
+			xhr.open("POST", "http://dongguo.xyz:8080/images/16/view", true);
 			xhr.responseType = "arraybuffer";
-
 			xhr.onload = function (event) {
 				if (xhr.status === 200) {
-					// Create a new Blob object from the binary data received in the response
 					var blob = new Blob([xhr.response], { type: "image/jpeg" });
 
-					// Read the data from the Blob object using FileReader
 					var reader = new FileReader();
 					reader.readAsDataURL(blob);
 					reader.onload = function () {
-						// Display the image in your application or client using an appropriate image viewer or display method
 						var img = document.createElement("img");
 						img.src = reader.result;
 						document.body.appendChild(img);
@@ -123,9 +115,7 @@
 				}
 			};
 
-			// Set the value of {id} to the ID of the image you want to view
 			xhr.send(null);
-
 		}
 
 
