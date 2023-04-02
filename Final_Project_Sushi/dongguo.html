@@ -1,98 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sushi Store</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Sushi Store</title>
-	<link rel="icon" type="image/x-icon" href="favicon.ico" />
-	<link rel="stylesheet" href="style.css" />
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-		integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-		crossorigin="anonymous"></script>
-</head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-sm navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./images/sushi_logo.png" alt="Sushi logo" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarID"
+            aria-controls="navbarID"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar-left" id="navbarID">
+            <div class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <a class="nav-link active" aria-current="page" href="#"
+                >About us</a
+              >
+              <a class="nav-link active" aria-current="page" href="#"
+                >Discount</a
+              >
+              <a class="nav-link active" aria-current="page" href="#"
+                >Payment</a
+              >
+              <a class="nav-link active" aria-current="page" href="#"
+                >Delivery</a
+              >
+              <a class="nav-link active" aria-current="page" href="#"
+                >Contacts</a
+              >
+            </div>
+            <div class="navbar-nav ml-auto">
+              <button type="button" class="btn">
+                <i class="fa fa-user fa-2px icon"></i>
+              </button>
+              <button type="button" class="btn">
+                <i class="fas fa-shopping-cart icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
 
-<body>
-	<div class="container">
-		<nav class="navbar navbar-expand-sm navbar-light">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#">
-					<img src="./images/sushi_logo.png" alt="Sushi logo" />
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
-					aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse navbar-left" id="navbarID">
-					<div class="navbar-nav mx-auto mb-2 mb-lg-0">
-						<a class="nav-link active" aria-current="page" href="#">About us</a>
-						<a class="nav-link active" aria-current="page" href="#">Discount</a>
-						<a class="nav-link active" aria-current="page" href="#">Payment</a>
-						<a class="nav-link active" aria-current="page" href="#">Delivery</a>
-						<a class="nav-link active" aria-current="page" href="#">Contacts</a>
-					</div>
-					<div class="navbar-nav ml-auto">
-						<button type="button" class="btn">
-							<i class="fa fa-user fa-2px icon"></i>
-						</button>
-						<button type="button" class="btn">
-							<i class="fas fa-shopping-cart icon"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-		</nav>
+      <div id="add-sushi">
+        <div class="mt-4">
+          <h3 class="font-weight-bold mb-4">Admin</h3>
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <div class="mb-3 width-100">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input
+                      type="title"
+                      class="form-control"
+                      placeholder="enter sushi title"
+                      id="title"
+                      required=""
+                    />
+                  </div>
+                </div>
+                <div class="mb-3 width-100">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">subTitle</label>
+                    <input
+                      type="title"
+                      class="form-control"
+                      placeholder="enter sushi title"
+                      id="subTitle"
+                      required=""
+                    />
+                  </div>
+                </div>
+                <div class="mb-3 width-100">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Price</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="enter sushi title"
+                      id="price"
+                      required=""
+                    />
+                  </div>
+                </div>
 
-		<div id="add-sushi">
-			<div class="mt-4">
-				<h3 class="font-weight-bold mb-4">Admin</h3>
-				<div class="container">
-					<div class="row">
-						<div class="col-12 col-md-4">
-							<div class="mb-3 width-100">
-								<div class="form-group">
-									<label for="exampleInputEmail1">Title</label>
-									<input type="title" class="form-control" placeholder="enter sushi title" id="title" required="" />
-								</div>
-							</div>
-							<div class="mb-3 width-100">
-								<div class="form-group">
-									<label for="exampleInputEmail1">subTitle</label>
-									<input type="title" class="form-control" placeholder="enter sushi title" id="subTitle" required="" />
-								</div>
-							</div>
-							<div class="mb-3 width-100">
-								<div class="form-group">
-									<label for="exampleInputEmail1">Price</label>
-									<input type="number" class="form-control" placeholder="enter sushi title" id="price" required="" />
-								</div>
-							</div>
+                <div class="mb-3 width-100">
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea
+                      class="form-control"
+                      placeholder="enter sushi description"
+                      id="description"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <button class="btn">
+                  <input type="file" name="file" id="file" required />
+                </button>
+                <div>
+                  <img
+                    id="img-preview"
+                    class="width-50"
+                    src="./images/Sushi_1.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                03
+                <button class="btn" type="submit">Upload</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-							<div class="mb-3 width-100">
-								<div class="form-group">
-									<label for="description">Description</label>
-									<textarea class="form-control" placeholder="enter sushi description" id="description"></textarea>
-								</div>
-							</div>
-							<div class="col-12 col-md-4">02</div>
-							<div class="col-12 col-md-4">03</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <script>
+      var el = document.getElementById('file')
+      el.addEventListener('change', function (e) {
+        console.log(this)
+        console.log(e.target)
+        let files = e.target.files
+        console.log(files)
+        if (!files.length) return
 
+        file = files[0]
+        previewFile(files[0])
+        formData = new FormData()
+        formData.append('name', 'name')
+        formData.append('description', 'name')
+        formData.append('file', files[0], files[0].name)
+        console.log(formData)
+        axios({
+          method: 'post',
+          url: 'http://localhost:8080/images',
+          data: formData,
+          headers: { 'Content-Type': 'multipart/form-data' },
+        })
+          .then(function (response) {
+            console.log(response)
+          })
+          .catch(function (response) {
+            console.log(response)
+          })
+      })
+
+      function previewFile(file) {
+        let reader
+        if (file) {
+          reader = new FileReader()
+          reader.readAsDataURL(file)
+        }
+        reader.onload = function (e) {
+          document.getElementById('img-preview').src = e.target.result
+        }
+      }
+    </script>
+  </body>
 </html>
