@@ -29,7 +29,8 @@ function getSearchResult(query) {
         var title = cards[i]
           .querySelector('.card-title')
           .textContent.toLowerCase()
-        var match = title.includes(query)
+       // var match = title.includes(query)
+       var match = title.indexOf(query) !== -1
         cards[i].style.display = match ? 'block' : 'none' 
       }
     })
