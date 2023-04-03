@@ -106,3 +106,4 @@ dist
 
 # Dongguo added
 *.zip
+.vscode/settings.json
