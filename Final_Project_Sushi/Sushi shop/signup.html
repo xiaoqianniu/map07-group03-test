@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign up page</title>
+    <!--meta tags-->
+    <meta name="keywords" content="HTML, Animate, animation, publier, page web, bootstrap">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Bootstrap template web site">
+    <meta name="author" content="Olga">
+    <!--end-of-meta tags-->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body>
+
+<form class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="col-md-4 mb">
+            <label for="validationTooltip01"></label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="First name"  required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 md">
+            <label for="validationTooltip02"></label>
+            <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 mb-0">
+            <label for="validationTooltipUsername"></label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                </div>
+                <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+                <div class="invalid-tooltip">
+                    Please choose a unique and valid username.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-4 mb">
+            <label for="validationTooltip03"></label>
+            <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
+            <div class="invalid-tooltip">
+                Please provide a valid city.
+            </div>
+        </div>
+        <div class="col-md-4 mb">
+            <label for="validationTooltip04"></label>
+            <input type="text" class="form-control" id="validationTooltip04" placeholder="Province" required>
+            <div class="invalid-tooltip">
+                Please provide a valid state.
+            </div>
+        </div>
+        <div class="col-md-4 mb">
+            <label for="validationTooltip05"></label>
+            <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
+            <div class="invalid-tooltip">
+                Please provide a valid zip.
+            </div>
+        </div>
+    </div>
+    <br>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+
+<!-- bootstrap v5-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+<!-- end of bootstrap v5-->
+</body>
+</html>
