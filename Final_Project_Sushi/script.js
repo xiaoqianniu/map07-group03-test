@@ -36,9 +36,7 @@ function getSearchResult(query) {
     .catch((error) => console.error(error))
 }
 // when hit the enter key will execute the search, do not need to click the search button
-document
-  .getElementById('search-field')
-  .addEventListener('keydown', function (event) {
+document.getElementById('search-field').addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
       event.preventDefault()
       var query = document.getElementById('search-field').value.toLowerCase()
@@ -97,4 +95,27 @@ $(document).ready(function () {
     .catch((error) => console.error(error))
 })
 
-// Dongguo end
+function sortedByPrice() {
+  $(document).ready(function () {
+    console.log("hello");
+    debugger;
+  fetch('data/data.json')
+  .then((response) => response.json())
+  .then((data) => {
+    const sortedCardsOne = data.list.slice().sort((a, b) => {
+      const priceA = parseFloat(a.price.replace('$', ''));
+      const priceB = parseFloat(b.price.replace('$', ''));
+      return priceA - priceB;
+    });
+    const sortedCardsTwo = data.blossom.slice().sort((a, b) => {
+      const priceA = parseFloat(a.price.replace('$', ''));
+      const priceB = parseFloat(b.price.replace('$', ''));
+      return priceA - priceB;
+    });
+    showList(sortedCardsOne, 'item-container');
+    showList(sortedCardsTwo, 'blossom-container');
+  })
+  .catch((error) => console.error(error))
+})
+}
+
