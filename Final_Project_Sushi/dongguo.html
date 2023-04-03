@@ -25,11 +25,6 @@
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-      crossorigin="anonymous"
-    ></script>
   </head>
 
   <body>
@@ -151,16 +146,30 @@
                 </div>
               </div>
               <div class="col-12 col-md-4">
-                <button class="btn" onclick="addSushi()">Add Sushi</button>
+                <button id="add-sushi-button" class="btn" onclick="addSushi()">
+                  Add Sushi
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+
     <script>
+      var addSushiButton
+      var title
+      $(document).ready(function () {
+        addSushiButton = document.getElementById('add-sushi-button')
+        addSushiButton.disabled = true
+      })
+
       var imageId = null
       var el = document.getElementById('file')
       el.addEventListener('change', function (e) {
@@ -187,6 +196,8 @@
           .then(function (response) {
             console.log(response)
             imageId = response.data.id
+            document.getElementById('add-sushi').disabled = false
+            addSushiButton.disabled = false
             console.log(imageId)
           })
           .catch(function (response) {
