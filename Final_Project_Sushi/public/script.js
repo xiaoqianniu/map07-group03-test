@@ -45,8 +45,6 @@ document.getElementById('search-field').addEventListener('keydown', function (ev
     }
   })
   
-// Dongguo start
-
 // dynamic adding cards/Items
 function showList(list,containerId) {
   const container = document.getElementById(containerId);
@@ -67,7 +65,12 @@ function showList(list,containerId) {
 				<p class="card-description">${item.description}</p>
 				<div class="card-price-btn">
 					<p id="card-price">${item.price}</p>
-					<button class="btn">Order a Sushi</button>
+					<div class="input-group">
+            <button class="btn" type="button" id="button-minus">-</button>
+            <input type="text" class="order-control text-center" value="1" aria-label="Quantity" aria-describedby="button-minus button-plus">
+            <button class="btn" type="button" id="button-plus">+</button>
+          </div>
+          <button type="submit" class="btn go-btn" name="order">Go</button>
 				</div>
 			</div>
 		</div>`
@@ -92,6 +95,7 @@ $(document).ready(function () {
       const blossom = data.blossom;
       showList(list, 'item-container');
       showList(blossom, 'blossom-container');
+      document.getElementById('button-plus').addEventListener('click', orderSushi);
     })
     .catch((error) => console.error(error))
 })
@@ -120,3 +124,55 @@ function sortedByPrice() {
 })
 }
 
+function orderSushi(){
+  const minusBtns = document.querySelectorAll('#button-minus');
+  const plusBtns = document.querySelectorAll('#button-plus');
+  const quantityInputs = document.querySelectorAll('.order-control');
+    
+  // Add event listeners to each button
+  for (let i = 0; i < minusBtns.length; i++) {
+    let quantity = 1;
+    minusBtns[i].addEventListener('click', () => {
+      if (quantity > 1) {
+        quantity--;
+        quantityInputs[i].value = quantity;
+        plusBtns[i].disabled = false; // enable the plus button
+      }
+      if (quantity === 1) {
+        minusBtns[i].disabled = true; // disable the minus button
+      }
+    });
+    
+    plusBtns[i].addEventListener('click', () => {
+      if (quantity < 10) { // maximum quantity allowed is 10
+        quantity++;
+        quantityInputs[i].value = quantity;
+        minusBtns[i].disabled = false; // enable the minus button
+      }
+      if (quantity === 10) {
+        plusBtns[i].disabled = true; // disable the plus button
+      }
+    });
+  }
+    const goBtns = document.querySelectorAll('.go-btn');
+    goBtns.forEach((btn, i) => {
+    goBtns[i].addEventListener('click', () => {
+      const itemName = document.querySelectorAll('.card-name')[i].textContent;
+      const itemPrice = document.querySelectorAll('.card-price')[i].textContent;
+      const itemQuantity = quantityInputs[i].value;
+      const item = {name: itemName, price: itemPrice, quantity: itemQuantity};
+      cartItemCount(item);
+    });
+  });
+  }
+
+window.onload = () => {
+  orderSushi();
+}
+
+function cartItemCount(item){
+  cart.push(item);
+  // update the notification number
+  const cartNotification = document.querySelector('.cart-count');
+  cartNotification.innerText = cart.length;
+}
