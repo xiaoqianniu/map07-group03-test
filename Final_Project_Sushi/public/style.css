@@ -92,8 +92,7 @@ justify-content: space-between;
   .cart-icon {
     position: relative;
   }
-  
-  .cart-count {
+  #cart-count {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -101,8 +100,7 @@ justify-content: space-between;
     width: 20px;
     height: 16px;
     border-radius: 50%;
-    background-color:none;
-    color: rgb(85, 4, 4);
+    color:white;
     font-size: 12px;
     font-weight: bold;
   }
