@@ -171,7 +171,7 @@ function cartItemCount(event) {
 }
   // Update the notification on the navbar
   if (totalQuantity > 0) { 
-    shoppingCart.innerHTML = `<i class="fa fa-shopping-cart cart-icon"></i> <span id="cart-count">${totalQuantity}</span>`;
+    shoppingCart.innerHTML = `<i class="fa fa-shopping-cart cart-icon"></i> ${totalQuantity}`;
   } else {
     shoppingCart.innerHTML = `<i class="fa fa-shopping-cart"></i>`;
   }
