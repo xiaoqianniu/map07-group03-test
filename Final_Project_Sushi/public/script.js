@@ -184,3 +184,26 @@ function goButtonClicked() {
   }
 }
 
+// current weather on navbar
+const apiKey = 'eb62ebbe6ef242872de1d5';
+const city = 'Montreal';
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+function displayWeather(response) {
+  const weatherData = response.weather[0];
+  const temperature = Math.round(response.main.temp - 273.15);
+  const icon = `http://openweathermap.org/img/w/${weatherData.icon}.png`;
+  const weatherElement = document.createElement('div');
+  weatherElement.innerHTML = `<img src="${icon}" alt="${weatherData.description}"> ${temperature}°C`;
+  const navbar = document.querySelector('.navbar');
+  navbar.appendChild(weatherElement);
+}
+
+function getWeather() {
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(displayWeather);
+}
+
+getWeather();
+
