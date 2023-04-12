@@ -1,6 +1,5 @@
 const sushiServer = 'http://dongguo.xyz:8080/sushi'
 const imageServer = 'http://dongguo.xyz:8080/images'
-const sushiList = []
 
 function getSearchResult(query) {
   var cards = document.querySelectorAll('.card')
@@ -36,7 +35,6 @@ function showList(list, containerId) {
   container.innerHTML = '' // clear previous contents of container
   for (const item of list) {
     // Image
-    var image
     var imageUrl = imageServer + `/${item.imageId}/view`
 
     let element = document.createElement('div')
