@@ -1,3 +1,7 @@
+const sushiServer = 'http://dongguo.xyz:8080/sushi'
+const imageServer = 'http://dongguo.xyz:8080/images'
+const sushiList = []
+
 function getSearchResult(query) {
   var cards = document.querySelectorAll('.card')
   fetch('data/data.json')
@@ -14,6 +18,7 @@ function getSearchResult(query) {
     })
     .catch((error) => console.error(error))
 }
+
 // when hit the enter key will execute the search, do not need to click the search button
 document
   .getElementById('search-field')
@@ -30,6 +35,10 @@ function showList(list, containerId) {
   const container = document.getElementById(containerId)
   container.innerHTML = '' // clear previous contents of container
   for (const item of list) {
+    // Image
+    var image
+    var imageUrl = imageServer + `/${item.imageId}/view`
+
     let element = document.createElement('div')
     element.classList.add('card')
     element.classList.add('col-sm-12')
@@ -39,7 +48,7 @@ function showList(list, containerId) {
     element.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.3)' // add box-showdow here
     element.innerHTML = `<div id="card-{item.id}" style="width: 18rem" key={item.id}>
 			<h4 class="card-title text-center">${item.title}</h4>
-			<img src="${item.image}" class="card-img-top mx-auto d-block" alt="..." />
+			<img src="${imageUrl}" class="card-img-top mx-auto d-block" alt="..." />
 			<div class="card-body">
 				<h5 class="card-subtitle">${item.subtitle}</h5>
 				<p class="card-description">${item.description}</p>
@@ -62,17 +71,20 @@ function addItem(item, containerId) {
   let container = document.getElementById(containerId)
   container.appendChild(item)
 }
+
 //Wait until the document has finished loading.
 //Fetch data from a JSON file called data.json.
 //Parse the JSON response into a JavaScript object.
 $(document).ready(function () {
-  fetch('data/data.json')
+  fetch(sushiServer)
     .then((response) => response.json())
     .then((data) => {
       // Do something with the array of objects
-      console.log(data)
+      //TODO: two types of sushi
       const list = data.list
-      const blossom = data.blossom
+      // const blossom = data.blossom
+      const blossom = []
+
       showList(list, 'item-container')
       showList(blossom, 'blossom-container')
       document
@@ -82,23 +94,25 @@ $(document).ready(function () {
     .catch((error) => console.error(error))
 })
 
+//TODO: use server
 function sortedByPrice() {
   $(document).ready(function () {
-    fetch('data/data.json')
+    fetch(sushiServer)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data)
         const sortedCardsOne = data.list.slice().sort((a, b) => {
-          const priceA = parseFloat(a.price.replace('$', ''))
-          const priceB = parseFloat(b.price.replace('$', ''))
+          const priceA = parseFloat(a.price)
+          const priceB = parseFloat(b.price)
           return priceA - priceB
         })
-        const sortedCardsTwo = data.blossom.slice().sort((a, b) => {
-          const priceA = parseFloat(a.price.replace('$', ''))
-          const priceB = parseFloat(b.price.replace('$', ''))
-          return priceA - priceB
-        })
+        // const sortedCardsTwo = data.blossom.slice().sort((a, b) => {
+        //   const priceA = parseFloat(a.price.replace('$', ''))
+        //   const priceB = parseFloat(b.price.replace('$', ''))
+        //   return priceA - priceB
+        // })
         showList(sortedCardsOne, 'item-container')
-        showList(sortedCardsTwo, 'blossom-container')
+        // showList(sortedCardsTwo, 'blossom-container')
       })
       .catch((error) => console.error(error))
   })
