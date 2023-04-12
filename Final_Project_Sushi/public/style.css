@@ -82,4 +82,25 @@ justify-content: space-between;
   #sort-btn:hover{
     background-color: lightgray;
   }
-  
+  .order-control{
+      width: 45px; 
+  }
+  .input-group {
+    margin-left: 40px;
+  }
+
+  .cart-icon {
+    position: relative;
+  }
+  #cart-count {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 16px;
+    border-radius: 50%;
+    color:white;
+    font-size: 12px;
+    font-weight: bold;
+  }
