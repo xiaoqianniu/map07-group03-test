@@ -1,14 +1,6 @@
 # map07-group03-test
 
-for doing some Git exercises
-
 ## please FORK this repository
-
-Dongguo created a new branch dev-dongguo
-
-## hello everyone!!! from olga
-
-xiao wei tested
 
 ## Main technology
 
@@ -39,8 +31,6 @@ git pull origin main
 git switch your-branch
 git merge --no-ff main
 ```
-
-xxx
 
 ### commit and push code into your repository
 
