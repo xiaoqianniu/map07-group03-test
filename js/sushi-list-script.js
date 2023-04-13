@@ -1,5 +1,5 @@
-const sushiServer = 'http://dongguo.xyz:8080/sushi'
-const imageServer = 'http://dongguo.xyz:8080/images'
+const sushiServer = 'https://dongguo.xyz/api/sushi'
+const imageServer = 'https://dongguo.xyz/api/images'
 
 function getSearchResult(query) {
   var cards = document.querySelectorAll('.card')
@@ -35,7 +35,7 @@ function showList(list, containerId) {
   container.innerHTML = '' // clear previous contents of container
   for (const item of list) {
     // Image
-    var imageUrl = imageServer + `/${item.imageId}/view`
+    var imageUrl = imageServer + `/${item.imageId}`
 
     let element = document.createElement('div')
     element.classList.add('card')

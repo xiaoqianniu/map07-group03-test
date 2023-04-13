@@ -1,7 +1,7 @@
 var categories = []
 var addSushiButton
 var title
-const server = 'http://dongguo.xyz:8080'
+const server = 'https://dongguo.xyz/api'
 
 $(document).ready(async function () {
   addSushiButton = document.getElementById('add-sushi-button')
@@ -37,12 +37,10 @@ el.addEventListener('change', function (e) {
   formData.append('file', files[0], files[0].name)
   axios({
     method: 'post',
-    // url: 'http://localhost:8080/images',
-    url: server + '/images',
+    url: server + '/images/add',
     data: formData,
     headers: {
       'Content-Type': 'multipart/form-data',
-      'Access-Control-Allow-Origin': '*',
     },
   })
     .then(function (response) {
@@ -88,7 +86,6 @@ function addSushi() {
 
   axios({
     method: 'post',
-    // url: 'http://localhost:8080/sushi',
     url: server + '/sushi',
     data,
   })
