@@ -1,9 +1,9 @@
-const sushiServer = 'http://localhost:8080/sushi'
-const imageServer = 'http://localhost:8080/images'
+const sushiServer = 'http://dongguo.xyz:8080/sushi'
+const imageServer = 'http://dongguo.xyz:8080/images'
 
 function getSearchResult(query) {
   var cards = document.querySelectorAll('.card')
-  fetch('data/data.json')
+  fetch('sushiServer')
     .then((response) => response.json())
     .then((data) => {
       for (var i = 0; i < cards.length; i++) {
