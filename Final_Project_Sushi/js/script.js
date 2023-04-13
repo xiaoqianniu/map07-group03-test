@@ -1,5 +1,5 @@
-const sushiServer = settings.server + '/sushi'
-const imageServer = settings.server + '/images'
+const sushiServer = 'http://localhost:8080/sushi'
+const imageServer = 'http://localhost:8080/images'
 
 function getSearchResult(query) {
   var cards = document.querySelectorAll('.card')
