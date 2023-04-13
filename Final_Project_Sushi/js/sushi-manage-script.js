@@ -77,6 +77,7 @@ function addSushi() {
       console.log(response)
       imageId = response.data.id
       console.log(imageId)
+      $('#message-modal').modal('show')
     })
     .catch(function (response) {
       console.log(response)
