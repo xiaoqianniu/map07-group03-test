@@ -1,5 +1,5 @@
-const sushiServer = 'http://dongguo.xyz:8080/sushi'
-const imageServer = 'http://dongguo.xyz:8080/images'
+const sushiServer = settings.server + '/sushi'
+const imageServer = settings.server + '/images'
 
 function getSearchResult(query) {
   var cards = document.querySelectorAll('.card')
@@ -53,11 +53,11 @@ function showList(list, containerId) {
 				<div class="card-price-btn">
 					<p id="card-price">${item.price}</p>
 					<div class="input-group">
-            <button class="btn" type="button" id="button-minus">-</button>
+            <button class="sushi-btn" type="button" id="button-minus">-</button>
             <input type="text" id="quantity-input" class="order-control text-center" value="1" aria-label="Quantity" aria-describedby="button-minus button-plus">
-            <button class="btn" type="button" id="button-plus">+</button>
+            <button class="sushi-btn" type="button" id="button-plus">+</button>
           </div>
-          <button type="submit" class="btn go-btn">Go</button>
+          <button type="submit" class="sushi-btn go-btn">Go</button>
 				</div>
 			</div>
 		</div>`
@@ -197,3 +197,26 @@ function goButtonClicked() {
     cart[i].added = true
   }
 }
+
+// current weather on navbar
+const apiKey = 'eb62ebbe6ef242872de1d5'
+const city = 'Montreal'
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+
+function displayWeather(response) {
+  const weatherData = response.weather[0]
+  const temperature = Math.round(response.main.temp - 273.15)
+  const icon = `http://openweathermap.org/img/w/${weatherData.icon}.png`
+  const weatherElement = document.createElement('div')
+  weatherElement.innerHTML = `<img src="${icon}" alt="${weatherData.description}"> ${temperature}°C`
+  const navbar = document.querySelector('.navbar')
+  navbar.appendChild(weatherElement)
+}
+
+function getWeather() {
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then(displayWeather)
+}
+
+getWeather()

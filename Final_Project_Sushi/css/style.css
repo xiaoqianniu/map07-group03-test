@@ -1,15 +1,14 @@
-
 .navbar {
-    color:#000!important;
-    background-color:RGBA(255,114,2,var(--bs-bg-opacity,1))!important;
-    margin-bottom: 40px;
+  color: #000 !important;
+  background-color: RGBA(255, 114, 2, var(--bs-bg-opacity, 1)) !important;
+  margin-bottom: 40px;
 }
 
 .navbar .navbar-nav a:hover {
-    color: white !important;
+  color: white !important;
 }
 body {
-    background-color: #ff7202;
+  background-color: #ff7202;
 }
 /* .card {
   height : 25rem;
@@ -29,7 +28,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  height : 25rem;
+  height: 25rem;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -39,68 +38,69 @@ body {
   border-radius: 1rem;
 }
 .card-img-top {
-    max-width: 13rem;
-    height: auto;
-    border-radius: 0.8rem;
-  }
-.btn{
-    background-color: #ff7202;
-    border-radius: 0.5rem;
+  max-width: 13rem;
+  height: auto;
+  border-radius: 0.8rem;
+}
+
+.sushi-btn {
+  background-color: #ff7202;
+  border-radius: 0.5rem;
 }
 .card-price-btn {
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
-.row{
-    gap:20px;
+.row {
+  gap: 20px;
 }
 .navbar-nav.mx-auto.mb-2.mb-lg-0 a.nav-link {
-    margin-right: 30px;
-  }
-  .navbar-nav.ml-auto {
-    margin-right: 5rem;
-  }
+  margin-right: 30px;
+}
+.navbar-nav.ml-auto {
+  margin-right: 5rem;
+}
 .icon:hover {
-    color:white;
+  color: white;
 }
 
 #search-field {
-    width: 150px;
-    border-radius: 10px;
+  width: 150px;
+  border-radius: 10px;
 }
 ::placeholder {
-    font-size: 11px;
-    color:rgb(176, 174, 174);
-    text-align: center;
-  }
-  #sort-btn{
-    background-color: #ff7202;
-    border:none;
-    border-radius: 0.5rem;
-    font-size:small;
-  }
-  #sort-btn:hover{
-    background-color: lightgray;
-  }
-  .order-control{
-      width: 45px; 
-  }
-  .input-group {
-    margin-left: 40px;
-  }
+  font-size: 11px;
+  color: rgb(176, 174, 174);
+  text-align: center;
+}
+#sort-btn {
+  background-color: #ff7202;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: small;
+}
+#sort-btn:hover {
+  background-color: lightgray;
+}
+.order-control {
+  width: 45px;
+}
+.input-group {
+  margin-left: 40px;
+}
 
-  .cart-icon {
-    position: relative;
-  }
-  #cart-count {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 16px;
-    border-radius: 50%;
-    color:white;
-    font-size: 12px;
-    font-weight: bold;
-  }
+.cart-icon {
+  position: relative;
+}
+#cart-count {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 16px;
+  border-radius: 50%;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
