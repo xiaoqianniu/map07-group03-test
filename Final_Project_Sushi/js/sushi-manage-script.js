@@ -1,9 +1,25 @@
+var categories = []
 var addSushiButton
 var title
-$(document).ready(function () {
+const server = 'http://localhost:8080'
+
+$(document).ready(async function () {
   addSushiButton = document.getElementById('add-sushi-button')
   addSushiButton.disabled = true
+
+  await getCategories()
 })
+
+async function getCategories() {
+  try {
+    const response = await axios.get(server + '/sushi/categories')
+    for (const item of response.data) {
+      categories.push(item)
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 var imageId = null
 var el = document.getElementById('file')
@@ -23,10 +39,12 @@ el.addEventListener('change', function (e) {
   console.log(formData)
   axios({
     method: 'post',
-    // url: 'http://localhost:8080/images',
-    url: 'http://dongguo.xyz:8080/images',
+    url: 'http://localhost:8080/images',
     data: formData,
-    headers: { 'Content-Type': 'multipart/form-data' },
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Access-Control-Allow-Origin': '*',
+    },
   })
     .then(function (response) {
       console.log(response)
@@ -51,26 +69,26 @@ function previewFile(file) {
 }
 
 function addSushi() {
+  const category = document.getElementById('category').value
   const title = document.getElementById('title').value
   const subTitle = document.getElementById('subTitle').value
   const price = document.getElementById('price').value
   const description = document.getElementById('description').value
-  console.log(title, subTitle, price, description, imageId)
+  console.log(category, title, subTitle, price, description, imageId)
 
   // Post
   const data = {
+    category,
     title,
     subTitle,
     price,
     description,
-    imageId: 16,
+    imageId,
   }
 
-  console.log(data)
   axios({
     method: 'post',
-    // url: 'http://localhost:8080/sushi',
-    url: 'http://dongguo.xyz:8080/sushi',
+    url: 'http://localhost:8080/sushi',
     data,
   })
     .then(function (response) {
