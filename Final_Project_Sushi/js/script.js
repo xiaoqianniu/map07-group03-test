@@ -53,11 +53,11 @@ function showList(list, containerId) {
 				<div class="card-price-btn">
 					<p id="card-price">${item.price}</p>
 					<div class="input-group">
-            <button class="btn" type="button" id="button-minus">-</button>
+            <button class="sushi-btn" type="button" id="button-minus">-</button>
             <input type="text" id="quantity-input" class="order-control text-center" value="1" aria-label="Quantity" aria-describedby="button-minus button-plus">
-            <button class="btn" type="button" id="button-plus">+</button>
+            <button class="sushi-btn" type="button" id="button-plus">+</button>
           </div>
-          <button type="submit" class="btn go-btn">Go</button>
+          <button type="submit" class="sushi-btn go-btn">Go</button>
 				</div>
 			</div>
 		</div>`
