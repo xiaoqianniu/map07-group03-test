@@ -1,5 +1,5 @@
-const sushiServer = 'http://dongguo.xyz:8080/sushi'
-const imageServer = 'http://dongguo.xyz:8080/images'
+const sushiServer = 'http://localhost:8080/sushi'
+const imageServer = 'http://localhost:8080/images'
 
 function getSearchResult(query) {
   var cards = document.querySelectorAll('.card')
