@@ -219,4 +219,4 @@ function getWeather() {
     .then(displayWeather)
 }
 
-getWeather()
+// getWeather()
