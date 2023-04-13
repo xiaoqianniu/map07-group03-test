@@ -1,7 +1,7 @@
 var categories = []
 var addSushiButton
 var title
-const server = 'http://localhost:8080'
+const server = settings.server
 
 $(document).ready(async function () {
   addSushiButton = document.getElementById('add-sushi-button')
