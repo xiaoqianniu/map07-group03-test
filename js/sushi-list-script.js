@@ -77,11 +77,13 @@ $(document).ready(function () {
   fetch(sushiServer)
     .then((response) => response.json())
     .then((data) => {
-      // Do something with the array of objects
-      //TODO: two types of sushi
-      const list = data.list
-      // const blossom = data.blossom
-      const blossom = []
+      console.log(data.list)
+      const list = data.list.filter((sushi) => {
+        return sushi.category !== 'Blossom'
+      })
+      const blossom = data.list.filter((sushi) => {
+        return sushi.category === 'Blossom'
+      })
 
       showList(list, 'item-container')
       showList(blossom, 'blossom-container')
@@ -92,7 +94,6 @@ $(document).ready(function () {
     .catch((error) => console.error(error))
 })
 
-//TODO: use server
 function sortedByPrice() {
   $(document).ready(function () {
     fetch(sushiServer)
