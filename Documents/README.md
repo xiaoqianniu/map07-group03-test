@@ -1,6 +1,6 @@
 # map07-group03-test
 
-live at [Your site is live at https://dongguowu.github.io/map07-group03-test/](https://dongguowu.github.io/map07-group03-test/)
+access the website at https://dongguowu.github.io/map07-group03-test/.
 
 ## please FORK this repository
 

@@ -3,7 +3,7 @@ const imageServer = 'https://dongguo.xyz/api/images'
 
 function getSearchResult(query) {
   var cards = document.querySelectorAll('.card')
-  fetch('sushiServer')
+  fetch(sushiServer)
     .then((response) => response.json())
     .then((data) => {
       for (var i = 0; i < cards.length; i++) {
