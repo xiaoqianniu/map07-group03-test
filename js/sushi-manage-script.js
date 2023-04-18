@@ -1,7 +1,7 @@
 var categories = []
 var addSushiButton
 var title
-const server = settings.server
+const server = 'https://dongguo.xyz/api'
 
 $(document).ready(async function () {
   addSushiButton = document.getElementById('add-sushi-button')
@@ -16,6 +16,7 @@ async function getCategories() {
     for (const item of response.data) {
       categories.push(item)
     }
+    console.log(categories)
   } catch (error) {
     console.log(error)
   }
@@ -24,8 +25,6 @@ async function getCategories() {
 var imageId = null
 var el = document.getElementById('file')
 el.addEventListener('change', function (e) {
-  console.log(this)
-  console.log(e.target)
   let files = e.target.files
   console.log(files)
   if (!files.length) return
@@ -36,14 +35,12 @@ el.addEventListener('change', function (e) {
   formData.append('name', 'name')
   formData.append('description', 'name')
   formData.append('file', files[0], files[0].name)
-  console.log(formData)
   axios({
     method: 'post',
-    url: 'http://localhost:8080/images',
+    url: server + '/images/add',
     data: formData,
     headers: {
       'Content-Type': 'multipart/form-data',
-      'Access-Control-Allow-Origin': '*',
     },
   })
     .then(function (response) {
@@ -71,24 +68,25 @@ function previewFile(file) {
 function addSushi() {
   const category = document.getElementById('category').value
   const title = document.getElementById('title').value
-  const subTitle = document.getElementById('subTitle').value
+  const subtitle = document.getElementById('sub-title').value
   const price = document.getElementById('price').value
   const description = document.getElementById('description').value
-  console.log(category, title, subTitle, price, description, imageId)
 
   // Post
   const data = {
     category,
     title,
-    subTitle,
+    subtitle,
     price,
     description,
     imageId,
   }
 
+  console.log(data)
+
   axios({
     method: 'post',
-    url: 'http://localhost:8080/sushi',
+    url: server + '/sushi',
     data,
   })
     .then(function (response) {

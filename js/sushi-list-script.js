@@ -1,9 +1,9 @@
-const sushiServer = settings.server + '/sushi'
-const imageServer = settings.server + '/images'
+const sushiServer = 'https://dongguo.xyz/api/sushi'
+const imageServer = 'https://dongguo.xyz/api/images'
 
 function getSearchResult(query) {
   var cards = document.querySelectorAll('.card')
-  fetch('data/data.json')
+  fetch(sushiServer)
     .then((response) => response.json())
     .then((data) => {
       for (var i = 0; i < cards.length; i++) {
@@ -35,7 +35,7 @@ function showList(list, containerId) {
   container.innerHTML = '' // clear previous contents of container
   for (const item of list) {
     // Image
-    var imageUrl = imageServer + `/${item.imageId}/view`
+    var imageUrl = imageServer + `/${item.imageId}`
 
     let element = document.createElement('div')
     element.classList.add('card')
@@ -77,11 +77,13 @@ $(document).ready(function () {
   fetch(sushiServer)
     .then((response) => response.json())
     .then((data) => {
-      // Do something with the array of objects
-      //TODO: two types of sushi
-      const list = data.list
-      // const blossom = data.blossom
-      const blossom = []
+      console.log(data.list)
+      const list = data.list.filter((sushi) => {
+        return sushi.category !== 'Blossom'
+      })
+      const blossom = data.list.filter((sushi) => {
+        return sushi.category === 'Blossom'
+      })
 
       showList(list, 'item-container')
       showList(blossom, 'blossom-container')
@@ -92,7 +94,6 @@ $(document).ready(function () {
     .catch((error) => console.error(error))
 })
 
-//TODO: use server
 function sortedByPrice() {
   $(document).ready(function () {
     fetch(sushiServer)
@@ -219,4 +220,4 @@ function getWeather() {
     .then(displayWeather)
 }
 
-getWeather()
+// getWeather()
