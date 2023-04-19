@@ -1,0 +1,19 @@
+{
+  "name": "sushi online store",
+  "short_name": "sushi",
+  "description": "One click to access to sushi online store",
+  "icons": [
+    {
+      "src": "./images/favicon.ico",
+      "size": "48x48",
+      "type": "image/ico"
+    }
+  ],
+  "display": "standalone",
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "sushi created by team 4"
+    }
+  ]
+}

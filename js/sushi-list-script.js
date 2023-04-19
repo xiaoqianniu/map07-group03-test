@@ -77,7 +77,6 @@ $(document).ready(function () {
   fetch(sushiServer)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.list)
       const list = data.list.filter((sushi) => {
         return sushi.category !== 'Blossom'
       })
@@ -99,7 +98,6 @@ function sortedByPrice() {
     fetch(sushiServer)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         const sortedCardsOne = data.list.slice().sort((a, b) => {
           const priceA = parseFloat(a.price)
           const priceB = parseFloat(b.price)
