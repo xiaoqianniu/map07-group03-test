@@ -1,5 +1,5 @@
 // const sushiServer = 'https://dongguo.xyz/api/sushi'
-const sushiServer = '../data/ubereats.json'
+const sushiServer = '@/../data/ubereats.json'
 const imageServer = 'https://dongguo.xyz/api/images'
 
 function getSearchResult(query) {
