@@ -1,4 +1,3 @@
-const sushiServer = 'https://dongguo.xyz/api/sushi'
 const imageServer = 'https://dongguo.xyz/api/images'
 
 function getSearchResult(query) {
@@ -35,7 +34,7 @@ function showList(list, containerId) {
   container.innerHTML = '' // clear previous contents of container
   for (const item of list) {
     // Image
-    var imageUrl = imageServer + `/${item.imageId}`
+    var imageUrl = item.image
 
     let element = document.createElement('div')
     element.classList.add('card')
@@ -48,10 +47,9 @@ function showList(list, containerId) {
 			<h4 class="card-title text-center">${item.title}</h4>
 			<img src="${imageUrl}" class="card-img-top mx-auto d-block" alt="..." />
 			<div class="card-body">
-				<h5 class="card-subtitle">${item.subtitle}</h5>
 				<p class="card-description">${item.description}</p>
 				<div class="card-price-btn">
-					<p id="card-price">${item.price}</p>
+					<p id="card-price">$ ${item.price / 100}</p>
 					<div class="input-group">
             <button class="sushi-btn" type="button" id="button-minus">-</button>
             <input type="text" id="quantity-input" class="order-control text-center" value="1" aria-label="Quantity" aria-describedby="button-minus button-plus">
@@ -77,12 +75,29 @@ $(document).ready(function () {
   fetch(sushiServer)
     .then((response) => response.json())
     .then((data) => {
-      const list = data.list.filter((sushi) => {
-        return sushi.category !== 'Blossom'
-      })
-      const blossom = data.list.filter((sushi) => {
-        return sushi.category === 'Blossom'
-      })
+
+      const blossom = []
+      const list = []
+      for (const item of data) {
+        list.push({
+          id: item['payload.standardItemsPayload.catalogItems[0].uuid'],
+          title: item['payload.standardItemsPayload.catalogItems[0].title'],
+          image: item['payload.s      const list = []
+      for (const item of data) {
+        list.push({
+          id: item['payload.standardItemsPayload.catalogItems[0].uuid'],
+          title: item['payload.standardItemsPayload.catalogItems[0].title'],
+          image: item['payload.standardItemsPayload.catalogItems[0].imageUrl'],
+          subtitle: item['payload.standardItemsPayload.catalogItems[0].title'],
+          description:
+            item[
+              'payload.standardItemsPayload.catalogItems[0].itemDescription'
+            ],
+          price: item['payload.standardItemsPayload.catalogItems[0].price'],
+        })
+      }
+
+      console.log(list)
 
       showList(list, 'item-container')
       showList(blossom, 'blossom-container')
