@@ -1,3 +1,5 @@
+// const sushiServer = 'https://dongguo.xyz/api/sushi'
+const sushiServer = '@/../data/ubereats.json'
 const imageServer = 'https://dongguo.xyz/api/images'
 
 function getSearchResult(query) {
@@ -75,14 +77,16 @@ $(document).ready(function () {
   fetch(sushiServer)
     .then((response) => response.json())
     .then((data) => {
-
-      const blossom = []
+      // console.log(data.list)
+      // const list = data.list.filter((sushi) => {
+      //   return sushi.category !== 'Blossom'
+      // })
+      // const blossom = data.list.filter((sushi) => {
+      //   return sushi.category === 'Blossom'
+      // })
+      console.log(data)
       const list = []
-      for (const item of data) {
-        list.push({
-          id: item['payload.standardItemsPayload.catalogItems[0].uuid'],
-          title: item['payload.standardItemsPayload.catalogItems[0].title'],
-          image: item['payload.s      const list = []
+      const blossom = []
       for (const item of data) {
         list.push({
           id: item['payload.standardItemsPayload.catalogItems[0].uuid'],
@@ -113,6 +117,7 @@ function sortedByPrice() {
     fetch(sushiServer)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data)
         const sortedCardsOne = data.list.slice().sort((a, b) => {
           const priceA = parseFloat(a.price)
           const priceB = parseFloat(b.price)
