@@ -86,6 +86,7 @@ $(document).ready(function () {
       // })
       console.log(data)
       const list = []
+      const blossom = []
       for (const item of data) {
         list.push({
           id: item['payload.standardItemsPayload.catalogItems[0].uuid'],
