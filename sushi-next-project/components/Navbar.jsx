@@ -6,9 +6,6 @@ const Navbar = () => {
     <div className="Nav">
       <nav className="navbar navbar-expand-sm navbar-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            <Image src="/src/images/sushi_logo.png" alt="Sushi logo" />
-          </a>
           <button
             className="navbar-toggler"
             type="button"
