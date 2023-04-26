@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Navbar from '../../components/Navbar'
-import SushiList from '../../components/sushiList'
-import SushiManage from '../../components/sushiManage'
+import Navbar from '../components/Navbar'
+import SushiList from '../components/sushiList'
+import SushiManage from '../components/sushiManage'
 import React from 'react'
 
 export default function Home() {
