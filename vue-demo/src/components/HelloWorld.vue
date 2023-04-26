@@ -2,10 +2,6 @@
 import { ref } from 'vue'
 import { reactive, computed, onMounted, onUnmounted } from 'vue'
 
-components: {
-	"auto-responsive" : AutoResponsive
-}
-
 const screenWidth = reactive({ width: window.innerWidth })
 
 const handleResize = () => {
@@ -39,23 +35,21 @@ const displayText = computed(() => {
 
 const data = [1, 2, 3, 4]
 const options = {
-        itemMargin: 10,
-        containerWidth: document.body.clientWidth,
-        itemClassName: 'item',
-        gridWidth: 100,
-        transitionDuration: '.5'}
+  itemMargin: 10,
+  containerWidth: document.body.clientWidth,
+  itemClassName: 'item',
+  gridWidth: 100,
+  transitionDuration: '.5',
+}
 </script>
 
 <template>
   <div class="container">
     <h1 :style="{ fontSize: headerFontSize }">{{ displayText }}</h1>
   </div>
-	<auto-responsive
-    v-bind="options"
-  >
+  <auto-responsive v-bind="options">
     <div v-for="item in data" :style="style" class="item">{{ item }}</div>
   </auto-responsive>
-
 </template>
 
 <style scoped>
