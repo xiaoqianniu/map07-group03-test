@@ -1,10 +1,9 @@
 import React from 'react'
-import { Image } from 'next'
 
 const Navbar = () => {
   return (
     <div className="Nav">
-      <nav className="navbar navbar-expand-sm navbar-light">
+      <nav className="navbar navbar-expand-sm navbar-light text-bg-sushi-gray">
         <div className="container-fluid">
           <button
             className="navbar-toggler"

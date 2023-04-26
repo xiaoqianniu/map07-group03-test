@@ -1,6 +1,6 @@
 .navbar {
   color: #000 !important;
-  background-color: RGBA(255, 114, 2, var(--bs-bg-opacity, 1)) !important;
+  /* background-color: RGBA(255, 114, 2, var(--bs-bg-opacity, 1)) !important; */
   margin-bottom: 40px;
 }
 
