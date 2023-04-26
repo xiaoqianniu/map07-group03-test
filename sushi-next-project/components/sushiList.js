@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 function SushiList() {
   const array = [
@@ -65,7 +66,13 @@ function SushiList() {
       key={item.id}
     >
       <h4 className="card-title">{item.title}</h4>
-      <img src="/images/Sushi_1.jpg" className="card-img-top" alt="..." />
+      <Image
+        src="/images/Sushi_1.jpg"
+        className="card-img-top"
+        alt="..."
+        width="300"
+        height="200"
+      />
       <div className="card-body">
         <h5 className="card-title">Japan found itself in midst</h5>
         <p className="card-text">
