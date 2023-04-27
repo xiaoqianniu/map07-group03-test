@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     }
     console.log(`GET /api/houses/${id} status: 200`)
   } else if (req.method === 'POST') {
-    res.status(201).json({ message: generateRandomString(15) })
+    res.status(201).json({ message: 'this function is not finish' })
   } else {
     res.status(405).json({ message: 'Method not allowed.' })
   }
