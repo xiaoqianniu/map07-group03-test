@@ -6,15 +6,23 @@ function SushiShow() {
   const [list, setList] = useState([])
   const [asc, setAsc] = useState(false)
 
+  const [originalList, setOriginalList] = useState(list)
+
   const serverUrl = '/api/sushi'
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(serverUrl)
       const data = await response.json()
-      const list = covertSushiList(data)
-      setList(list)
+      const array = covertSushiList(data)
+      setList(array)
+      setOriginalList(array)
     }
-    fetchData()
+
+    if (originalList.length >= 1) {
+      setList(originalList)
+    } else {
+      fetchData()
+    }
   }, [])
 
   const covertSushiList = (data) => {
@@ -56,21 +64,15 @@ function SushiShow() {
   }
 
   const searchByTitle = (queryStr) => {
-    const fetchData = async (queryStr) => {
-      const response = await fetch(serverUrl)
-      const data = await response.json()
-      const list = covertSushiList(data)
-      if (queryStr) {
-        const matedList = list.filter(
-          (sushi) =>
-            sushi.title.toLowerCase().indexOf(queryStr.toLowerCase()) !== -1
-        )
-        setList(matedList)
-      } else {
-        setList(list)
-      }
+    if (queryStr) {
+      const matedList = originalList.filter(
+        (sushi) =>
+          sushi.title.toLowerCase().indexOf(queryStr.toLowerCase()) !== -1
+      )
+      setList(matedList)
+    } else {
+      setList(originalList)
     }
-    fetchData(queryStr)
   }
 
   return (
