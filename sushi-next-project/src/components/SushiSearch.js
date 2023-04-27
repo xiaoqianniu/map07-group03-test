@@ -5,7 +5,6 @@ import { Col, Container, Row, Button, InputGroup, Form } from 'react-bootstrap'
 const SushiSearch = ({ sort, search }) => {
   const [query, setQuery] = useState('')
   const sortByPrice = () => {
-    console.log('sort')
     sort()
   }
   const searchByTitle = () => {
@@ -13,7 +12,6 @@ const SushiSearch = ({ sort, search }) => {
   }
 
   const queryChanged = (event) => {
-    console.log(event.target.value)
     setQuery(event.target.value)
     search(query)
   }
