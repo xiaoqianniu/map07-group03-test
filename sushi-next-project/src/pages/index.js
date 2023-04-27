@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
-import SushiList from '../components/sushiList'
 import SushiManage from '../components/sushiManage'
 import React from 'react'
+import SushiShow from '@/components/SushiShow'
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <SushiList />
+      <SushiShow />
       <SushiManage />
     </>
   )
