@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       res.setHeader('Content-Type', 'application/json')
       res.status(200).json(item)
     } else {
-      res.status(404).send('sushi not found')
+      res.status(404).json({ error: `sushi(id=${id}) not found.` })
     }
     console.log(`GET /api/houses/${id} status: 200`)
   } else if (req.method === 'POST') {
