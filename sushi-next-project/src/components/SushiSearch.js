@@ -15,6 +15,11 @@ const SushiSearch = ({ sort, search }) => {
   const queryChanged = (event) => {
     console.log(event.target.value)
     setQuery(event.target.value)
+    search(query)
+  }
+
+  const displayAll = () => {
+    search('')
   }
 
   return (
@@ -23,6 +28,11 @@ const SushiSearch = ({ sort, search }) => {
         <Col>
           <Button variant="warning" onClick={sortByPrice}>
             Sort By Price
+          </Button>
+        </Col>
+        <Col>
+          <Button variant="warning" onClick={displayAll}>
+            Display all
           </Button>
         </Col>
 
@@ -35,7 +45,7 @@ const SushiSearch = ({ sort, search }) => {
               aria-label="Search"
               onChange={queryChanged}
             />
-            <Button variant="outline-success" onClick={searchByTitle}>
+            <Button variant="warning" onClick={searchByTitle}>
               Search
             </Button>
           </Form>
