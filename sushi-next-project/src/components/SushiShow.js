@@ -10,18 +10,17 @@ function SushiShow() {
 
   const serverUrl = '/api/sushi'
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(serverUrl)
-      const data = await response.json()
-      const array = covertSushiList(data)
-      setList(array)
-      setOriginalList(array)
-    }
-
-    if (originalList.length >= 1) {
-      setList(originalList)
-    } else {
+    if (originalList.length === 0) {
+      const fetchData = async () => {
+        const response = await fetch(serverUrl)
+        const data = await response.json()
+        const convertedList = covertSushiList(data)
+        setList(convertedList)
+        setOriginalList(convertedList)
+      }
       fetchData()
+    } else {
+      setList(originalList)
     }
   }, [originalList])
 
