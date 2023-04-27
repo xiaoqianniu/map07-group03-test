@@ -23,7 +23,7 @@ function SushiShow() {
     } else {
       fetchData()
     }
-  }, [])
+  }, [originalList])
 
   const covertSushiList = (data) => {
     const array = []

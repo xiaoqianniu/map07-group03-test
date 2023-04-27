@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Col, Container, Row, Button, InputGroup, Form } from 'react-bootstrap'
+import { Col, Container, Row, Button, Form } from 'react-bootstrap'
 
 const SushiSearch = ({ sort, search }) => {
   const [query, setQuery] = useState('')
