@@ -3,10 +3,10 @@ import SearchBar from './SushiSearch'
 import SushiList from './sushiList'
 
 function SushiShow() {
-  const [list, setList] = useState([])
+  const [listToShow, setListToShow] = useState([])
   const [asc, setAsc] = useState(false)
 
-  const [originalList, setOriginalList] = useState(list)
+  const [originalList, setOriginalList] = useState(listToShow)
 
   const serverUrl = '/api/sushi'
   useEffect(() => {
@@ -15,24 +15,24 @@ function SushiShow() {
         const response = await fetch(serverUrl)
         const data = await response.json()
         const convertedList = covertSushiList(data)
-        setList(convertedList)
+        setListToShow(convertedList)
         setOriginalList(convertedList)
       }
       fetchData()
     } else {
-      setList(originalList)
+      setListToShow(originalList)
     }
   }, [originalList])
 
   const sortByPrice = useCallback(() => {
-    const sortedByPrice = list.slice().sort((a, b) => {
+    const sortedByPrice = listToShow.slice().sort((a, b) => {
       const priceA = parseFloat(a.price)
       const priceB = parseFloat(b.price)
       return asc ? priceA - priceB : priceB - priceA
     })
-    setList(sortedByPrice)
+    setListToShow(sortedByPrice)
     setAsc(!asc)
-  }, [list, asc])
+  }, [listToShow, asc])
 
   const searchByTitle = useCallback(
     (queryStr) => {
@@ -40,7 +40,7 @@ function SushiShow() {
         (sushi) =>
           sushi.title.toLowerCase().indexOf(queryStr.toLowerCase()) !== -1
       )
-      setList(matedList)
+      setListToShow(matedList)
     },
     [originalList]
   )
@@ -64,7 +64,7 @@ function SushiShow() {
   return (
     <>
       <SearchBar sort={sortByPrice} search={searchByTitle} />
-      <SushiList list={list} />
+      <SushiList list={listToShow} />
     </>
   )
 }
