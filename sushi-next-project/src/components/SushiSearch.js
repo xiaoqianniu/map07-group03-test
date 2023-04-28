@@ -22,28 +22,38 @@ const SushiSearch = ({ sort, search }) => {
 
   return (
     <Container>
-      <Row>
-        <Col>
-          <Button variant="warning" onClick={sortByPrice}>
+      <Row className="mt-4 mb-3">
+        <Col className="mb-2">
+          <Button
+            variant="warning"
+            onClick={sortByPrice}
+            style={{ width: '16rem' }}
+          >
             Sort By Price
           </Button>
         </Col>
-        <Col>
-          <Button variant="warning" onClick={displayAll}>
+        <Col className="mb-2">
+          <Button
+            variant="warning"
+            onClick={displayAll}
+            style={{ width: '16rem' }}
+          >
             Display all
           </Button>
         </Col>
-
-        <Col>
+        <Col className="mb-2">
           <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
-              className="me-2"
               aria-label="Search"
               onChange={queryChanged}
             />
-            <Button variant="warning" onClick={searchByTitle}>
+            <Button
+              variant="warning"
+              onClick={searchByTitle}
+              style={{ width: '12rem' }}
+            >
               Search
             </Button>
           </Form>

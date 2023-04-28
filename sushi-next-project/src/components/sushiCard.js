@@ -1,26 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Image from 'next/image'
-import { Col, Button } from 'react-bootstrap'
+import { Card, Button, Badge } from 'react-bootstrap'
 
 function SushiCard(props) {
   const { item } = props
   const imageUrl = item.image
   return (
-    <Col>
-      <div>
-        <h4 className="card-title text-center">{item.title}</h4>
-        <Image
-          src={imageUrl}
-          className="card-img-top mx-auto d-block"
-          alt="..."
-          width="300"
-          height="200"
-        />
-        <h5>{item.price / 100}</h5>
+    <Card className="h-100">
+      <Card.Img variant="top" src={imageUrl} width="300px" height="200" />
+      <Card.Body>
+        <Card.Title>{item.title}</Card.Title>
+        <Card.Text>{item.description}</Card.Text>
+
+        <h3>
+          <Badge bg="secondary">$ {item.price / 100}</Badge>
+        </h3>
         <Button>Add to cart</Button>
-      </div>
-    </Col>
+      </Card.Body>
+    </Card>
   )
 }
 
