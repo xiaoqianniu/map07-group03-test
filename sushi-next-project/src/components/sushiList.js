@@ -2,15 +2,17 @@ import React from 'react'
 import SushiCard from './sushiCard'
 
 import PropTypes from 'prop-types'
-import { Container, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 
 function SushiList(props) {
   const { list = [] } = props
   return (
     <Container>
-      <Row xs={1} md={2} lg={3}>
+      <Row xs={1} md={2} lg={3} className="g-3">
         {list.map((item) => (
-          <SushiCard key={item.id} item={item} />
+          <Col key={item.id}>
+            <SushiCard item={item} />
+          </Col>
         ))}
       </Row>
     </Container>
